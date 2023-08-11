@@ -5,20 +5,20 @@ cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
  
 while True:
-    success, img = cap.read()
-
-    height, width, success = img.shape
+    _, img = cap.read()
+    hsvImg = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    height, width, _ = img.shape
 
     center_x = int(width/2)
     center_y = int(height/2)
 
     # setting the pixel we want to take the color value
-    pixel_center = img[center_y, center_x]
+    pixel_center = hsvImg[center_y, center_x]
     cv2.circle(img, (cx, cy), 5, (0, 255, 0), 3)
 
     #converting the image's BGR colorspace to HSV color space
 
-    hsvImg = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    
 
     lowerLimit, upperLimit = get_limits(color=yellow)
 
