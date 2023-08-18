@@ -14,7 +14,7 @@ while True:
 
     # setting the pixel we want to take the color value
     pixel_center = hsvImg[center_y, center_x]
-    cv2.circle(img, (cx, cy), 5, (0, 255, 0), 3)
+    cv2.circle(img, (center_x, center_y), 5, (0, 255, 0), 3)
 
     #converting the image's BGR colorspace to HSV color space
 
